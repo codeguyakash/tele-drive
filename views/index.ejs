@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telegram Drive</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Telegram Drive</h1>
+      <h2 class="mt-3">Uploaded Files</h2>
+      <form
+        action="/upload"
+        method="POST"
+        enctype="multipart/form-data"
+        class="mb-3"
+      >
+        <div class="form-group">
+          <input type="file" name="file" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      <ul class="list-group mt-3">
+        <% files.forEach(file => { %>
+        <li class="list-group-item">
+          <a href="/download/<%= file %>"><%= file %></a>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>
